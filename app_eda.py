@@ -10,16 +10,15 @@ plt.rcParams['axes.unicode_minus'] = False
 if platform.system() == 'Darwin':
     rc('font', family='AppleGothic')
 elif platform.system() == 'Windows':
-    path = "c:/Windows/Fonts/malgun.ttf"
+    path = 'data/malgun.ttf'
     font_name = font_manager.FontProperties(fname=path).get_name()
     rc('font', family=font_name)
 elif platform.system() == 'Linux':
-    path = "/usr/share/fonts/nanum/NanumGothicBold.ttf"
+    path = 'data/malgun.ttf'
     font_name = font_manager.FontProperties(fname=path).get_name()
     rc('font', family=font_name)    
 else:
     print('Unknown system... sorry~~~~')
-st.text(platform.system())
 
 train = pd.read_csv('data/train.csv', parse_dates=['datetime'])
 train['year'] = train['datetime'].dt.year
