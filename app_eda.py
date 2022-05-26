@@ -14,9 +14,7 @@ elif platform.system() == 'Windows':
     font_name = font_manager.FontProperties(fname=path).get_name()
     rc('font', family=font_name)
 elif platform.system() == 'Linux':
-    path = 'data/MALGUN.TTF'
-    font_name = font_manager.FontProperties(fname=path).get_name()
-    rc('font', family=font_name)    
+    rc('font', family=NanumGothic)    
 else:
     print('Unknown system... sorry~~~~')
 
