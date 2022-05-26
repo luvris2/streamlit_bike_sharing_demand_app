@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-#
+
 # 한글 출력
 import platform
 from matplotlib import font_manager, rc
@@ -19,6 +19,7 @@ elif platform.system() == 'Linux':
     rc('font', family=font_name)    
 else:
     print('Unknown system... sorry~~~~')
+st.text(platform.system())
 
 train = pd.read_csv('data/train.csv', parse_dates=['datetime'])
 train['year'] = train['datetime'].dt.year
