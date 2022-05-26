@@ -118,7 +118,7 @@ def run_eda() :
     fig.set_size_inches(10, 3)
     sns.pointplot(data=train, x="hour", y="count", hue="dayofweek", ax=ax3)
     ax3.set_title("요일에 따른 시간별대여량", fontsize=25)
-    ax3.set_xlabel("요일(1:월, 2:화, 3:수, 4:목, 5:금, 6:토, 7:일)", fontsize=15)
+    ax3.set_xlabel("요일(0:월, 1:화, 2:수, 3:목, 4:금, 5:토, 6:일)", fontsize=15)
     ax3.set_ylabel("대여량", fontsize=15)
     st.pyplot(fig)
     fig,ax4 = plt.subplots(nrows=1)
