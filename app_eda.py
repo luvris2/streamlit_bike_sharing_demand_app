@@ -10,11 +10,18 @@ plt.rcParams['axes.unicode_minus'] = False
 if platform.system() == 'Darwin':
     rc('font', family='AppleGothic')
 elif platform.system() == 'Windows':
-    path = 'data/malgun.ttf'
+    path = 'c:/windows/Fonts/malgun.ttf'
     font_name = font_manager.FontProperties(fname=path).get_name()
     rc('font', family=font_name)
 elif platform.system() == 'Linux':
-    rc('font', family='NanumGothic')    
+    # '''
+    # !wget "https://www.wfonts.com/download/data/2016/06/13/malgun-gothic/malgun.ttf"
+    # !mv malgun.ttf /usr/share/fonts/truetype/
+    # import matplotlib.font_manager as fm 
+    # fm._rebuild() 
+    # '''
+    font = 'malgun.ttf'  
+    rc('font', family='MALGUN')
 else:
     print('Unknown system... sorry~~~~')
 
