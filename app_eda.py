@@ -20,8 +20,8 @@ elif platform.system() == 'Linux':
     # import matplotlib.font_manager as fm 
     # fm._rebuild() 
     # '''
-    font = 'malgun.ttf'  
-    rc('font', family='MALGUN')
+    # font = 'malgun.ttf'  
+    rc('font', family='Malgun Gothic')
 else:
     print('Unknown system... sorry~~~~')
 
