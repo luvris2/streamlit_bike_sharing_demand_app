@@ -28,6 +28,7 @@ train["year_month"] = train["datetime"].apply(concatenate_year_month)
 
 def run_eda() :
     st.subheader('데이터 분석')
+    st.text(platform.system())
 
     if st.button('데이터 보기') :
         st.write(train.loc[ : , :'count' ])
