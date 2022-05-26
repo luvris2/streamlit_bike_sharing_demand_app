@@ -13,7 +13,7 @@ elif platform.system() == 'Windows':
     path = "c:/Windows/Fonts/malgun.ttf"
     font_name = font_manager.FontProperties(fname=path).get_name()
     rc('font', family=font_name)
-elif platform.system() == 'linux':
+elif platform.system() == 'Linux':
     path = "/usr/share/fonts/nanum/NanumGothicBold.ttf"
     font_name = font_manager.FontProperties(fname=path).get_name()
     rc('font', family=font_name)    
