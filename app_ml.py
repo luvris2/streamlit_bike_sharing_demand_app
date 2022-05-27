@@ -87,5 +87,16 @@ def run_ml() :
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 3)
 
-    rf_ml.transform(X_train, y_train)
-    rf_y_pred = rf_ml.predict(X_test)
+    rf_y_pred = rf_ml.predict(X_train)
+    rf_y_pred = rf_y_pred.reshape(8164,1)
+    rf_y_pred = y_s_scaler.inverse_transform(rf_y_pred)
+    rf_y_pred = np.around(rf_y_pred)
+    y_train = y_s_scaler.inverse_transform(y_train)
+    st.write(rf_y_pred)
+    st.write(y_train)
+
+    fig, (ax1, ax2) = plt.subplot(1,2)
+    fig.set_size_inches(10, 5)
+    sns.pointplot(data=y_train, y="count", hue='count', ax=ax1)
+    sns.pointplot(data=rf_y_pred, y="count", hue='count', ax=ax2)
+    st.pyplot(fig)
