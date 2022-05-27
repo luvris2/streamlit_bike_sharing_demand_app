@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+data/rf_ml.pkl
+data/rf_wind_ml.pkl
+data/X_s_scaler.pkl
+data/y_s_scaler.pkl
