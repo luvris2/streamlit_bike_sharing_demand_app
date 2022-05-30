@@ -28,6 +28,12 @@ def run_ml() :
     test['hour'] = test['datetime'].dt.hour
     test["dayofweek"] = test["datetime"].dt.dayofweek
 
+    if st.button('데이터 보기') :
+        st.text('자전거 대여량 데이터')
+        st.write(train.loc[ : , :'count' ])
+        st.text('데이터 통계')
+        st.write(train.describe())
+
     st.subheader('풍속이 0인 값 확인하기')
     st.write(train['windspeed'].value_counts())
 
@@ -57,16 +63,14 @@ def run_ml() :
 
     # 풍속이 0인 값에 예측한 풍속 값 대입
     trainWind0['windspeed'] = trainWind0_pred
-    trainWind0.info()
     train = trainWind0.append(trainWindNot0)
     train['windspeed'] = train['windspeed'].astype('float')
 
     testWind0['windspeed'] = testWind0_pred
-    testWind0.info()
     test = testWind0.append(testWindNot0)
     test['windspeed'] = test['windspeed'].astype('float')
 
-    # 0 값을 조정한 이후 차트 확인
+    #0 값을 조정한 이후 차트 확인
     st.text('풍속이 0인 값 예측 후 차트')
     fig2, ax2 = plt.subplots()
     fig2.set_size_inches(25,10)
@@ -92,11 +96,12 @@ def run_ml() :
     rf_y_pred = y_s_scaler.inverse_transform(rf_y_pred)
     rf_y_pred = np.around(rf_y_pred)
     y_train = y_s_scaler.inverse_transform(y_train)
-    st.write(rf_y_pred)
-    st.write(y_train)
 
-    fig, (ax1, ax2) = plt.subplot(1,2)
-    fig.set_size_inches(10, 5)
-    sns.pointplot(data=y_train, y="count", hue='count', ax=ax1)
-    sns.pointplot(data=rf_y_pred, y="count", hue='count', ax=ax2)
-    st.pyplot(fig)
+    st.subheader('대여량 예측하기')
+    st.text(' 예측 데이터 (왼:실제값 / 오:예측값)')
+    df = pd.DataFrame(data=y_train)
+    df = df.rename(columns={0:'y_test_count'})
+    df['rf_y_pred_count'] = rf_y_pred
+    st.write(df)
+    st.text('실제값과 예측값 차트로 출력')
+    st.line_chart(df)
