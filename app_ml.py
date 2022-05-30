@@ -10,7 +10,6 @@ def run_ml() :
     X_s_scaler = joblib.load('data/X_s_scaler.pkl')
     y_s_scaler = joblib.load('data/y_s_scaler.pkl')
     rf_ml = joblib.load('data/rf_ml.pkl')
-    rf_wind_ml = joblib.load('data/rf_wind_ml.pkl')
 
     train = pd.read_csv('data/train.csv', parse_dates=['datetime'])
     test = pd.read_csv('data/test.csv', parse_dates=['datetime'])
@@ -33,52 +32,6 @@ def run_ml() :
         st.write(train.loc[ : , :'count' ])
         st.text('데이터 통계')
         st.write(train.describe())
-
-    st.subheader('풍속이 0인 값 확인하기')
-    st.write(train['windspeed'].value_counts())
-
-    # 풍속이 0인 값과 아닌 값 나누기
-    trainWind0 = train.loc[train['windspeed'] == 0]
-    trainWindNot0 = train.loc[train['windspeed'] != 0]
-    testWind0 = test.loc[test['windspeed'] == 0]
-    testWindNot0 = test.loc[test['windspeed'] != 0]
-
-    st.subheader('풍속이 0인 값 데이터 예측하기')
-    wCol = ["season", "weather", "humidity", "month", "temp", "year", "atemp"]
-    trainWindNot0["windspeed"] = trainWindNot0["windspeed"].astype("str") # 풍속이 0이 아닌 값들 스트링으로 타입 변환
-    testWindNot0["windspeed"] = testWindNot0["windspeed"].astype("str") # 풍속이 0이 아닌 값들 스트링으로 타입 변환
-    rf_wind_ml.fit(trainWindNot0[wCol], trainWindNot0["windspeed"])
-    trainWind0_pred = rf_wind_ml.predict(X = trainWind0[wCol])
-    testWind0_pred = rf_wind_ml.predict(X = testWind0[wCol])
-
-    # 풍속 0인 값 대입전 차트 출력
-    st.text('풍속이 0인 값 정리 전 차트')
-    fig1, ax1 = plt.subplots()
-    fig1.set_size_inches(25,10)
-    plt.sca(ax1)
-    plt.xticks(rotation=30, ha='right')
-    ax1.set(ylabel='Count',title="train windspeed")
-    sns.countplot(data=train, x="windspeed", ax=ax1)
-    st.pyplot(fig1)
-
-    # 풍속이 0인 값에 예측한 풍속 값 대입
-    trainWind0['windspeed'] = trainWind0_pred
-    train = trainWind0.append(trainWindNot0)
-    train['windspeed'] = train['windspeed'].astype('float')
-
-    testWind0['windspeed'] = testWind0_pred
-    test = testWind0.append(testWindNot0)
-    test['windspeed'] = test['windspeed'].astype('float')
-
-    #0 값을 조정한 이후 차트 확인
-    st.text('풍속이 0인 값 예측 후 차트')
-    fig2, ax2 = plt.subplots()
-    fig2.set_size_inches(25,10)
-    plt.sca(ax2)
-    plt.xticks(rotation=30, ha='right')
-    ax2.set(ylabel='Count',title="test windspeed")
-    sns.countplot(data=test, x="windspeed", ax=ax2)
-    st.pyplot(fig2)
 
     X = train
     X = X.drop(['year_month','casual','registered','datetime','count', 'day'], axis=1)
