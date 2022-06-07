@@ -13,8 +13,9 @@ import io
 
 
 def main() :
-    st.header('자전거 수요 데이터 분석 앱')
+    st.header('🚴🏻‍♀️ 자전거 수요 데이터 분석 앱')
     with st.sidebar:
+        st.image('data/bike_img01.png')
         menu = option_menu("App Menu", ["Home", "EDA", "ML"],
                             icons=['house', 'bar-chart', 'kanban'],
                             menu_icon="bi bi-menu-up", default_index=0,

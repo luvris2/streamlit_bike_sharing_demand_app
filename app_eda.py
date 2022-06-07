@@ -21,7 +21,6 @@ else:
     print('Unknown system... sorry~~~~')
 
 train = pd.read_csv('data/train.csv', parse_dates=['datetime'])
-test = pd.read_csv('data/test.csv', parse_dates=['datetime'])
 train['year'] = train['datetime'].dt.year
 train['month'] = train['datetime'].dt.month
 train['day'] = train['datetime'].dt.day
@@ -33,6 +32,7 @@ train["year_month"] = train["datetime"].apply(concatenate_year_month)
 
 def run_eda() :
     global test, train
+
     st.subheader('데이터 분석')
 
     if st.button('데이터 보기') :
@@ -41,9 +41,9 @@ def run_eda() :
     with st.expander('데이터프레임 컬럼 상세 설명') :
         st.subheader('데이터프레임 컬럼 상세 설명')
         st.text('datetime : 날짜와 시간')
-        st.text('season : 계절 (1:봄, 2:여름, 3:가을, 4:겨울')
-        st.text('holiday : 공휴일 여부 (0:평일, 1:공휴일')
-        st.text('workingday : 평일 여부 (0:휴일, 1:평일')
+        st.text('season : 계절 (1:봄, 2:여름, 3:가을, 4:겨울)')
+        st.text('holiday : 공휴일 여부 (0:평일, 1:공휴일)')
+        st.text('workingday : 평일 여부 (0:휴일, 1:평일)')
         st.text('weather : 날씨 (1:맑음, 2:흐림, 3:이슬비, 4:호우)')
         st.text('temp : 온도')
         st.text('atemp : 체감온도')
