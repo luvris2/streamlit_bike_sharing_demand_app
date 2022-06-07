@@ -3,12 +3,7 @@
 이 시스템을 사용하여, 사람들은 한 장소에서 자전거를 빌려서 필요에 따라 다른 곳으로 돌려줄 수 있다. 현재, 전 세계에는 500개 이상의 자전거 공유 프로그램이 있습니다.
 
 # Repository File Structure
-Bike_Sharing_Demand_App ┬ app.py ┬ app_home.py  
-                        │        ├ app_eda.py  
-                        │        └ app_ml.py  
-                        └ data ┬ train.csv  
-                               ├ bike_img01.png  
-                               └ bike_img02.png  
+![file_dir](https://user-images.githubusercontent.com/105832446/172329301-f29efdcf-2db2-4197-ad78-bb0d201e6444.png)
 
 - app.py : 실행을 위한 메인 파일
     - app_home.py : 앱 실행시 가장 먼저 보여주는 홈 기능
