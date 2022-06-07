@@ -1,13 +1,13 @@
-# Overview
+# 오버뷰
 자전거 공유시스템은 시내 곳곳의 키오스크 위치 네트워크를 통해 회원가입, 대여, 자전거 반납 등의 절차가 자동화되는 자전거 대여 수단이다.
 이 시스템을 사용하여, 사람들은 한 장소에서 자전거를 빌려서 필요에 따라 다른 곳으로 돌려줄 수 있다. 현재, 전 세계에는 500개 이상의 자전거 공유 프로그램이 있습니다.
 
-# Dataset
+# 데이터셋
 **Kaggle Competitions**  
 Bike Sharing Demand - Forecast use of a city bikeshare system  
 https://www.kaggle.com/competitions/bike-sharing-demand/data
 
-# Dataset Columns Detail
+# 데이터셋 각 컬럼 설명
 - datetime : 날짜와 시간
 - season : 계절 (1:봄, 2:여름, 3:가을, 4:겨울
 - holiday : 공휴일 여부 (0:평일, 1:공휴일)
@@ -53,6 +53,9 @@ X.drop(['year_month','datetime','count','day'], axis=1)
     y = y.to_frame()
 ```
 
+# Feature Scaling
+- User Scaler : Standard Scaler
+- Apply Variable : X, y
+
 # Machine Learning
-- Using Scaler : Standard
 - Using Model : Random Forest Regression
