@@ -6,9 +6,9 @@
 ![file_dir](https://user-images.githubusercontent.com/105832446/172329301-f29efdcf-2db2-4197-ad78-bb0d201e6444.png)
 
 - app.py : 실행을 위한 메인 파일
-    - app_home.py : 앱 실행시 가장 먼저 보여주는 홈 기능
-    - app_eda.py : 데이터를 분석하여 차트로 보여주는 기능
-    - app_ml.py : 분석한 데이터를 이용하여 인공지능이 예측
+    - app_home.py : 앱 실행시 가장 먼저 보여질 홈
+    - app_eda.py : 데이터를 분석하여 차트 출력
+    - app_ml.py : 분석한 데이터를 이용하여 인공지능 예측
 - data 폴더 : 앱 실행시 필요한 추가 파일
     - train.csv : 데이터셋
     - bike_img01.png : 사이드바에 보여질 이미지 파일
@@ -58,6 +58,7 @@ X.drop(['year_month','datetime','count','day'], axis=1)
 # Split Data - X(train data), y(test data)
 - X = 학습시킬 데이터
 - y = count(대여량) 컬럼
+- test size : 25%
 ``` python
     X = train
     X = X.drop(['year_month','datetime','count','day'], axis=1)
@@ -65,6 +66,9 @@ X.drop(['year_month','datetime','count','day'], axis=1)
     y = y.to_frame()
 ```
 
+# Feature Scaling
+- Using Scaler : Standard Scaler
+- Apply Variable : X, y
+
 # Machine Learning
-- Using Scaler : Standard
 - Using Model : Random Forest Regression
