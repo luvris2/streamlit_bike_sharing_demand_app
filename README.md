@@ -1,13 +1,30 @@
-# 오버뷰
+# Overview
 자전거 공유시스템은 시내 곳곳의 키오스크 위치 네트워크를 통해 회원가입, 대여, 자전거 반납 등의 절차가 자동화되는 자전거 대여 수단이다.
 이 시스템을 사용하여, 사람들은 한 장소에서 자전거를 빌려서 필요에 따라 다른 곳으로 돌려줄 수 있다. 현재, 전 세계에는 500개 이상의 자전거 공유 프로그램이 있습니다.
 
-# 데이터셋
+# Repository File Structure
+Bike_Sharing_Demand_App ┬ app.py ┬ app_home.py
+                        │        ├ app_eda.py
+                        │        └ app_ml.py
+                        └ data ┬ train.csv
+                               ├ bike_img01.png
+                               └ bike_img02.png
+
+- app.py : 실행을 위한 메인 파일
+    - app_home.py : 앱 실행시 가장 먼저 보여주는 홈 기능
+    - app_eda.py : 데이터를 분석하여 차트로 보여주는 기능
+    - app_ml.py : 분석한 데이터를 이용하여 인공지능이 예측
+- data 폴더 : 앱 실행시 필요한 추가 파일
+    - train.csv : 데이터셋
+    - bike_img01.png : 사이드바에 보여질 이미지 파일
+    - bike_img02.png : 홈화면에서 보여질 이미지 파일
+    
+# Dataset
 **Kaggle Competitions**  
 Bike Sharing Demand - Forecast use of a city bikeshare system  
 https://www.kaggle.com/competitions/bike-sharing-demand/data
 
-# 데이터셋 각 컬럼 설명
+# Dataset Columns Detail
 - datetime : 날짜와 시간
 - season : 계절 (1:봄, 2:여름, 3:가을, 4:겨울
 - holiday : 공휴일 여부 (0:평일, 1:공휴일)
@@ -53,9 +70,6 @@ X.drop(['year_month','datetime','count','day'], axis=1)
     y = y.to_frame()
 ```
 
-# Feature Scaling
-- User Scaler : Standard Scaler
-- Apply Variable : X, y
-
 # Machine Learning
+- Using Scaler : Standard
 - Using Model : Random Forest Regression
