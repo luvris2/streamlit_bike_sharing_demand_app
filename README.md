@@ -16,6 +16,11 @@
     - bike_img01.png : 사이드바에 보여질 이미지 파일
     - bike_img02.png : 홈화면에서 보여질 이미지 파일
     
+# Pre-requisite
+``` phtyon
+pip install streamlit-option-menu
+```
+
 # Dataset
 **Kaggle Competitions**  
 Bike Sharing Demand - Forecast use of a city bikeshare system  
