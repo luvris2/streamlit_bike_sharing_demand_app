@@ -46,24 +46,23 @@ def concatenate_year_month(datetime):
 train["year_month"] = train["datetime"].apply(concatenate_year_month)
 ```
 
-# Drop Data
+# Split Data - X(train data), y(test data)
+- X = 학습시킬 데이터
+- y = count(대여량) 컬럼
+- test size : 25%
+``` python
+X = train
+y = train['count']
+y = y.to_frame()
+```
+
+# Drop Train Data
   - datetime : 피쳐 엔지니어링을 통해 날짜와 시간을 분리
   - year_month : 연도, 월 컬럼이 단독으로 존재
   -  day : working day, holiday 이용
   - count : 결과값이므로 y 변수에 대입
 ``` python
 X.drop(['year_month','datetime','count','day'], axis=1)
-```
-
-# Split Data - X(train data), y(test data)
-- X = 학습시킬 데이터
-- y = count(대여량) 컬럼
-- test size : 25%
-``` python
-    X = train
-    X = X.drop(['year_month','datetime','count','day'], axis=1)
-    y = train['count']
-    y = y.to_frame()
 ```
 
 # Feature Scaling
