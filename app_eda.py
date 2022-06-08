@@ -3,9 +3,9 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
-import plotly.express as px
 
-# 한글 출력
+# 각 운영체제에 따른 한글 출력
+# 리눅스의 경우 해당 글꼴이 설치되어있어야 합니다.
 import platform
 from matplotlib import font_manager, rc
 plt.rcParams['axes.unicode_minus'] = False
@@ -20,7 +20,10 @@ elif platform.system() == 'Linux':
 else:
     print('Unknown system... sorry~~~~')
 
+# csv 파일 호출
 train = pd.read_csv('data/train.csv', parse_dates=['datetime'])
+
+# 피쳐 엔지니어링
 train['year'] = train['datetime'].dt.year
 train['month'] = train['datetime'].dt.month
 train['day'] = train['datetime'].dt.day
@@ -30,13 +33,16 @@ def concatenate_year_month(datetime):
     return "{0}-{1}".format(datetime.year, datetime.month)
 train["year_month"] = train["datetime"].apply(concatenate_year_month)
 
+# add_eda.py 파일 호출시 가장 먼저 실행 될 함수 run_eda
 def run_eda() :
-    global test, train
+    global train
 
     st.subheader('데이터 분석')
 
+
     if st.button('데이터 보기') :
         st.write(train.loc[ : , :'count' ])
+
 
     with st.expander('데이터프레임 컬럼 상세 설명') :
         st.subheader('데이터프레임 컬럼 상세 설명')
@@ -53,6 +59,7 @@ def run_eda() :
         st.text('registered : 등록 회원 대여 횟수')
         st.text('count : 총 대여 횟수')
 
+    # 원하는 데이터를 선택하여 화면에 차트로 출력
     st.subheader('차트 분석')
     chart_list = ['날짜/시간별 대여량', '휴일/평일별 대여량', '시간대별 대여량 심화 분석', '날씨/계절별 대여량', '온도별 대여량', '상관계수']
     selected = st.selectbox('보고싶은 분석 차트를 선택해주세요.', chart_list)

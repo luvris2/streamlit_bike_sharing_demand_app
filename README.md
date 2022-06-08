@@ -72,3 +72,6 @@ X.drop(['year_month','datetime','count','day'], axis=1)
 
 # Machine Learning
 - Using Model : Random Forest Regression
+
+# Connect URL
+http://ec2-3-35-209-81.ap-northeast-2.compute.amazonaws.com:8502

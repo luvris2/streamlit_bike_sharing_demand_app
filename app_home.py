@@ -1,7 +1,4 @@
-import pandas as pd
-import altair as alt
 import streamlit as st
-import time
 
 def run_home() :
     st.write('📝 이 앱은 자전거 대여량을 분석하여 예측 및 차트로 보여주는 앱입니다.')

@@ -2,15 +2,7 @@ import streamlit as st
 import app_home
 import app_eda
 import app_ml
-
 from streamlit_option_menu import option_menu
-import streamlit.components.v1 as html
-from  PIL import Image
-import numpy as np
-import pandas as pd
-import plotly.express as px
-import io 
-
 
 def main() :
     st.header('🚴🏻‍♀️ 자전거 수요 데이터 분석 앱')
@@ -23,10 +15,7 @@ def main() :
             "container": {"padding": "5!important", "background-color": "#fafafa"},
             "icon": {"color": "orange", "font-size": "25px"}, 
             "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-            "nav-link-selected": {"background-color": "#02ab21"},
-    }
-    )
-
+            "nav-link-selected": {"background-color": "#02ab21"}, })
     if menu == 'Home' :
         app_home.run_home()
     elif menu == 'EDA' :
