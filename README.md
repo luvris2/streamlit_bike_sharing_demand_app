@@ -17,9 +17,14 @@
     - bike_img02.png : 홈화면에서 보여질 이미지 파일
     
 # Pre-requisite
+- Library
 ``` phtyon
 pip install streamlit-option-menu
 ```
+- File
+    - RF_Model : https://drive.google.com/file/d/1--XZYxNSMiFs4N4QdiLL_4JOTqDvfSDz/view?usp=sharing
+    - X_Scaler : https://drive.google.com/file/d/1gTozcZZiKaXFTZInbuUgQ0e_0TaXlZAd/view?usp=sharing
+    - y_Scaler : https://drive.google.com/file/d/1-4WCYnV3eBWWTeMzXgoI6O6IKbSz6WMb/view?usp=sharing
 
 # Dataset
 **Kaggle Competitions**  
