@@ -1,3 +1,7 @@
+# Preview
+![image](https://user-images.githubusercontent.com/105832446/190935890-31e048c5-9a41-45e6-8390-e58d4406ca21.png)
+![image](https://user-images.githubusercontent.com/105832446/190935897-75cc75af-8fdc-4f7f-b710-6353fe9f1b85.png)
+
 # Overview
 - 날짜와 날씨, 여러가지 환경이 기입된 자전거 대여량의 데이터를 포함하고 있습니다.
 - 데이터는 매 시간주기로 기록이 되어있습니다.
